@@ -2,9 +2,16 @@ const http = require('http');
 
 // Sample users data (could be replaced with a database)
 let users = [
-  { id: 1, name: "John Doe", email: "john@example.com" },
-  { id: 2, name: "Jane Doe", email: "jane@example.com" },
-  // More sample users can be added here
+  { "id": 1, "name": "Alice Johnson", "email": "alice@example.com", "age": 25, "phoneNumber": "123-456-7890", "address": "123 Elm St", "role": "admin" },
+  { "id": 2, "name": "Bob Smith", "email": "bob@example.com", "age": 30, "phoneNumber": "987-654-3210", "address": "456 Oak St", "role": "user" },
+  { "id": 3, "name": "Charlie Brown", "email": "charlie@example.com", "age": 22, "phoneNumber": "555-555-5555", "address": "789 Pine St", "role": "user" },
+  { "id": 4, "name": "David Green", "email": "david@example.com", "age": 28, "phoneNumber": "444-444-4444", "address": "101 Maple St", "role": "admin" },
+  { "id": 5, "name": "Eva White", "email": "eva@example.com", "age": 27, "phoneNumber": "333-333-3333", "address": "202 Cedar St", "role": "user" },
+  { "id": 6, "name": "Frank Black", "email": "frank@example.com", "age": 35, "phoneNumber": "222-222-2222", "address": "303 Birch St", "role": "user" },
+  { "id": 7, "name": "Grace Blue", "email": "grace@example.com", "age": 29, "phoneNumber": "111-111-1111", "address": "404 Willow St", "role": "admin" },
+  { "id": 8, "name": "Hank Grey", "email": "hank@example.com", "age": 26, "phoneNumber": "666-666-6666", "address": "505 Ash St", "role": "user" },
+  { "id": 9, "name": "Ivy Purple", "email": "ivy@example.com", "age": 24, "phoneNumber": "777-777-7777", "address": "606 Spruce St", "role": "user" },
+  { "id": 10, "name": "Jack Yellow", "email": "jack@example.com", "age": 31, "phoneNumber": "888-888-8888", "address": "707 Walnut St", "role": "admin" }
 ];
 
 // Function to generate the next user ID
