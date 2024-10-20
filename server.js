@@ -28,7 +28,7 @@ const server = http.createServer((req, res) => {
   // Home route
   if (url === '/' && method === 'GET') {
     res.writeHead(200, { 'Content-Type': 'text/plain', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE', 'Access-Control-Allow-Headers': 'Content-Type' });
-    res.end('Welcome to our User Management API!');
+    res.end('Welcome to our User Management Board!');
   }
 
   // GET all users
@@ -51,7 +51,7 @@ const server = http.createServer((req, res) => {
     }
   }
 
-  // POST new user (without ID)
+  // POST new user (with complete fields)
   else if (url === '/users' && method === 'POST') {
     let body = '';
 
@@ -83,12 +83,12 @@ const server = http.createServer((req, res) => {
 
       req.on('end', () => {
         const { name, email, age, phoneNumber, address, role } = JSON.parse(body);
-        user.name = name || user.name;
-        user.email = email || user.email;
-        user.age = age !== undefined ? age : user.age; // update only if provided
-        user.phoneNumber = phoneNumber || user.phoneNumber;
-        user.address = address || user.address;
-        user.role = role || user.role;
+        user.name = name !== undefined ? name : user.name;
+        user.email = email !== undefined ? email : user.email;
+        user.age = age !== undefined ? age : user.age;
+        user.phoneNumber = phoneNumber !== undefined ? phoneNumber : user.phoneNumber;
+        user.address = address !== undefined ? address : user.address;
+        user.role = role !== undefined ? role : user.role;
 
         res.writeHead(200, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify(user));
