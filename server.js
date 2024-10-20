@@ -60,8 +60,8 @@ const server = http.createServer((req, res) => {
     });
 
     req.on('end', () => {
-      const { name, email } = JSON.parse(body);
-      const newUser = { id: getNextUserId(), name, email };
+      const { name, email, age, phoneNumber, address, role } = JSON.parse(body);
+      const newUser = { id: getNextUserId(), name, email, age, phoneNumber, address, role };
       users.push(newUser);
 
       res.writeHead(201, { 'Content-Type': 'application/json' });
@@ -82,9 +82,13 @@ const server = http.createServer((req, res) => {
       });
 
       req.on('end', () => {
-        const { name, email } = JSON.parse(body);
+        const { name, email, age, phoneNumber, address, role } = JSON.parse(body);
         user.name = name || user.name;
         user.email = email || user.email;
+        user.age = age !== undefined ? age : user.age; // update only if provided
+        user.phoneNumber = phoneNumber || user.phoneNumber;
+        user.address = address || user.address;
+        user.role = role || user.role;
 
         res.writeHead(200, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify(user));
