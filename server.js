@@ -2,8 +2,7 @@ const http = require('http');
 
 // Sample users data
 let users = [
-  { id: 1, name: "John Doe", email: "john@example.com" },
-  { id: 2, name: "Jane Doe", email: "jane@example.com" },
+  { "id": 1, "name": "Alice Johnson", "email": "alice@example.com", "age": 25, "phoneNumber": "123-456-7890", "address": "123 Elm St", "role": "admin" },
   { "id": 2, "name": "Bob Smith", "email": "bob@example.com", "age": 30, "phoneNumber": "987-654-3210", "address": "456 Oak St", "role": "user" },
     { "id": 3, "name": "Charlie Brown", "email": "charlie@example.com", "age": 22, "phoneNumber": "555-555-5555", "address": "789 Pine St", "role": "user" },
     { "id": 4, "name": "David Green", "email": "david@example.com", "age": 28, "phoneNumber": "444-444-4444", "address": "101 Maple St", "role": "admin" },
