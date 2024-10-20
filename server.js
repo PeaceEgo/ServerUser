@@ -9,7 +9,10 @@ let users = [
 
 // Function to generate the next user ID
 const getNextUserId = () => {
-  return users.length > 0 ? users[users.length - 1].id + 1 : 1;
+  if (users.length === 0) {
+    return 1; // If there are no users, start from ID 1
+  }
+  return Math.max(...users.map(user => user.id)) + 1; // Get the highest ID and add 1
 };
 
 const server = http.createServer((req, res) => {
