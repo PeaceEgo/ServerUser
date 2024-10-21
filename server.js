@@ -27,13 +27,23 @@ const server = http.createServer((req, res) => {
 
   // Home route
   if (url === '/' && method === 'GET') {
-    res.writeHead(200, { 'Content-Type': 'text/plain', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE', 'Access-Control-Allow-Headers': 'Content-Type' });
+    res.writeHead(200, { 
+      'Content-Type': 'text/plain', 
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
+      'Access-Control-Allow-Headers': 'Content-Type'
+    });
     res.end('Welcome to our User Management Board!');
   }
 
   // GET all users
   else if (url === '/users' && method === 'GET') {
-    res.writeHead(200, { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE', 'Access-Control-Allow-Headers': 'Content-Type' });
+    res.writeHead(200, { 
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
+      'Access-Control-Allow-Headers': 'Content-Type'
+    });
     res.end(JSON.stringify(users));
   }
 
@@ -43,7 +53,12 @@ const server = http.createServer((req, res) => {
     const user = users.find(u => u.id === parseInt(id));
 
     if (user) {
-      res.writeHead(200, { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE', 'Access-Control-Allow-Headers': 'Content-Type' });
+      res.writeHead(200, { 
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
+        'Access-Control-Allow-Headers': 'Content-Type'
+      });
       res.end(JSON.stringify(user));
     } else {
       res.writeHead(404, { 'Content-Type': 'application/json' });
@@ -90,11 +105,21 @@ const server = http.createServer((req, res) => {
         user.address = address !== undefined ? address : user.address;
         user.role = role !== undefined ? role : user.role;
 
-        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.writeHead(200, { 
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
+          'Access-Control-Allow-Headers': 'Content-Type'
+        });
         res.end(JSON.stringify(user));
       });
     } else {
-      res.writeHead(404, { 'Content-Type': 'application/json' });
+      res.writeHead(404, { 
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
+        'Access-Control-Allow-Headers': 'Content-Type'
+      });
       res.end(JSON.stringify({ message: 'User not found' }));
     }
   }
@@ -104,7 +129,12 @@ const server = http.createServer((req, res) => {
     const id = url.split('/')[2];
     users = users.filter(u => u.id !== parseInt(id));
 
-    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.writeHead(200, { 
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
+      'Access-Control-Allow-Headers': 'Content-Type'
+    });
     res.end(JSON.stringify({ message: 'User deleted' }));
   }
 
